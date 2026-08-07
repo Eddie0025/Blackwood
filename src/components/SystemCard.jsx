@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function SystemCard({
   number,
@@ -6,9 +7,10 @@ function SystemCard({
   subtitle,
   description,
   tags,
+  link,
 }) {
   return (
-    <div className="flex flex-col w-full lg:w-90 min-h-125 lg:h-130">
+    <Link to={link || "/"} className="flex flex-col w-full lg:w-90 min-h-125 lg:h-130 group cursor-pointer" style={{ textDecoration: "none" }}>
 
       {/* Number */}
       <p className="text-[#6f654d] tracking-[0.25em] text-sm lg:text-xl">
@@ -17,7 +19,7 @@ function SystemCard({
 
       {/* Title */}
       <h2
-        className="text-4xl sm:text-5xl lg:text-[52px] text-white leading-none mt-6 lg:mt-8"
+        className="text-4xl sm:text-5xl lg:text-[52px] text-white leading-none mt-6 lg:mt-8 group-hover:text-[#c6a96b] transition-colors duration-300"
         style={{ fontFamily: "Newsreader, serif" }}
       >
         {title}
@@ -41,7 +43,7 @@ function SystemCard({
         {tags}
       </p>
 
-    </div>
+    </Link>
   );
 }
 

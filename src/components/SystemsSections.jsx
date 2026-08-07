@@ -34,7 +34,9 @@ function SystemSection({
             className="text-white text-5xl lg:text-[64px] leading-none"
             style={{ fontFamily: "Newsreader, serif" }}
           >
-            {title}
+            <Link to={link} className="hover:text-[#c6a96b] transition-colors duration-300">
+              {title}
+            </Link>
           </h2>
 
           <p className="mt-8 text-[#666] text-lg leading-9 max-w-md">

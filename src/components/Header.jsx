@@ -7,24 +7,23 @@ function Header() {
 
   return (
     <header className="bg-black w-full sticky top-0 z-50 border-b border-gray-800">
-      <div className="max-w-8xl mx-auto flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 shrink-0">
           <img
-            src="/logo.jpg"
+            src="/logo.png"
             alt="Logo"
-            className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 object-contain"
+            style={{ height: "68px", transform: "translateY(5px)" }}
+            className="w-auto object-contain"
           />
 
-          <Link to="/">
-            <h1 className="text-gray-200 text-sm sm:text-lg md:text-2xl tracking-wide">
-                BLACKWOOD TECHNOLOGIES
-            </h1>
-          </Link>
+          <h1 className="text-gray-200 text-xs sm:text-sm md:text-base lg:text-lg tracking-wider">
+              BLACKWOOD TECHNOLOGIES
+          </h1>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 xl:gap-10 text-xl">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-sm">
           <Link
             to="/systems"
             className="text-gray-200 hover:text-[#c6a96b] transition-colors duration-300"
@@ -53,7 +52,7 @@ function Header() {
             ABOUT
           </Link>
 
-          <button className="bg-black text-[#c6a96b] border-2 border-[#c6a96b] px-5 py-2 rounded-md font-semibold hover:bg-[#eab23a] hover:text-black transition">
+          <button className="bg-black text-[#c6a96b] border border-[#c6a96b] px-4 py-1.5 rounded-md font-semibold hover:bg-[#eab23a] hover:text-black transition text-xs">
             REQUEST ACCESS
           </button>
         </nav>

@@ -3,50 +3,58 @@ import { Link } from "react-router-dom";
 import SystemsMarquee from "../components/SystemsMarquee.jsx";
 import SystemCard from "../components/SystemCard";
 import Principles from "../components/Principles.jsx";
+import CrystalHero from "../components/CrystalHero.jsx";
 
 function Homepage() {
   return (
     <div className="bg-[#0b0a09] min-h-screen text-white overflow-x-hidden">
       {/* First section */}
-      <section className="px-6 sm:px-10 lg:px-20 pt-12 sm:pt-16 lg:pt-20">
-        <h2 className="text-[#c6a96b] text-xs sm:text-sm lg:text-xl tracking-[0.25em] lg:tracking-[0.3em] uppercase font-sans">
-          AI-NATIVE INTELLIGENCE INFRASTRUCTURE
-        </h2>
+      <section className="px-6 sm:px-10 lg:px-20 pt-0 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+        <div>
+          <h2 className="text-[#c6a96b] text-xs sm:text-sm lg:text-xl tracking-[0.25em] lg:tracking-[0.3em] uppercase font-sans">
+            AI-NATIVE INTELLIGENCE INFRASTRUCTURE
+          </h2>
 
-        <h1
-          className="text-white text-5xl sm:text-7xl lg:text-9xl leading-none mt-8 lg:mt-10"
-          style={{ fontFamily: "Newsreader, serif" }}
-        >
-          Intelligence,
-        </h1>
-
-        <h1
-          className="text-[#c6a96b] text-5xl sm:text-7xl lg:text-9xl italic leading-none"
-          style={{ fontFamily: "Newsreader, serif" }}
-        >
-          Deployed.
-        </h1>
-
-        <p className="text-gray-300 text-base sm:text-lg lg:text-xl mt-8 lg:mt-10 max-w-xl lg:max-w-2xl leading-relaxed">
-          AI-native systems built to secure, decide, and evolve —
-          <br />
-          calibrated to your environment, not the public internet.
-        </p>
-
-        <div className="mt-8 lg:mt-10 flex flex-col sm:flex-row gap-5 sm:gap-8">
-          <Link
-            to="/systems"
-            className="text-[#c6a96b] text-sm sm:text-base lg:text-xl tracking-[0.25em] lg:tracking-[0.3em] uppercase font-sans hover:text-white transition"
+          <h1
+            className="text-white text-5xl sm:text-7xl lg:text-9xl leading-none mt-8 lg:mt-10"
+            style={{ fontFamily: "Newsreader, serif" }}
           >
-            Explore Systems —
-          </Link>
+            Intelligence,
+          </h1>
 
-          <Link
-            to="/access"
-            className="text-[#c6a96b] text-sm sm:text-base lg:text-xl tracking-[0.25em] lg:tracking-[0.3em] uppercase font-sans hover:text-white transition"
+          <h1
+            className="text-[#c6a96b] text-5xl sm:text-7xl lg:text-9xl italic leading-none"
+            style={{ fontFamily: "Newsreader, serif" }}
           >
-            Request Access —
-          </Link>
+            Deployed.
+          </h1>
+
+          <p className="text-gray-300 text-base sm:text-lg lg:text-xl mt-8 lg:mt-10 max-w-xl lg:max-w-2xl leading-relaxed">
+            AI-native systems built to secure, decide, and evolve —
+            <br />
+            calibrated to your environment, not the public internet.
+          </p>
+
+          <div className="mt-8 lg:mt-10 flex flex-col sm:flex-row gap-5 sm:gap-8">
+            <Link
+              to="/systems"
+              className="text-[#c6a96b] text-sm sm:text-base lg:text-xl tracking-[0.25em] lg:tracking-[0.3em] uppercase font-sans hover:text-white transition"
+            >
+              Explore Systems —
+            </Link>
+
+            <Link
+              to="/access"
+              className="text-[#c6a96b] text-sm sm:text-base lg:text-xl tracking-[0.25em] lg:tracking-[0.3em] uppercase font-sans hover:text-white transition"
+            >
+              Request Access —
+            </Link>
+          </div>
+        </div>
+
+        {/* Dynamic 3D Crystal Hero Animation */}
+        <div className="flex justify-center lg:justify-end w-full">
+          <CrystalHero />
         </div>
       </section>
 
@@ -86,6 +94,7 @@ function Homepage() {
             subtitle="AI-NATIVE CYBERSECURITY"
             description="A hierarchical multi-agent system that detects, analyzes, and responds to threats in real time. Learns the contours of your environment continuously."
             tags="Threat Detection • Response Automation • Behavioral Analysis"
+            link="/cerebx"
           />
 
           <SystemCard
@@ -94,6 +103,7 @@ function Homepage() {
             subtitle="CUSTOM AI MODEL DEVELOPMENT"
             description="AI models built and trained on your environment, not generic datasets. Domain-specific intelligence that understands your data, your risk, your context."
             tags="Custom Training • Private Infrastructure • Zero Data Leakage"
+            link="/nexus"
           />
 
           <SystemCard
@@ -102,6 +112,7 @@ function Homepage() {
             subtitle="DECISION-SUPPORT INTELLIGENCE"
             description="Transform complex, fragmented data into clear, defensible decisions. Designed for operators who cannot afford ambiguity."
             tags="Signal Fusion • Confidence Scoring • Audit Trails"
+            link="/athena"
           />
         </div>
       </section>
@@ -110,14 +121,36 @@ function Homepage() {
 
       {/* Fourth section */}
       <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: "url('/constellation.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        ></div>
+        <style>{`
+          @keyframes infiniteScroll {
+            0% {
+              transform: translate3d(0, 0, 0);
+            }
+            100% {
+              transform: translate3d(-100%, 0, 0);
+            }
+          }
+        `}</style>
+        <div className="absolute inset-0 opacity-35 flex w-[200%] h-full overflow-hidden pointer-events-none z-0">
+          <div
+            className="w-1/2 h-full shrink-0"
+            style={{
+              backgroundImage: "url('/constellation.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              animation: "infiniteScroll 95s linear infinite",
+            }}
+          />
+          <div
+            className="w-1/2 h-full shrink-0"
+            style={{
+              backgroundImage: "url('/constellation.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              animation: "infiniteScroll 95s linear infinite",
+            }}
+          />
+        </div>
 
         <div className="relative z-10">
           <div className="px-6 sm:px-10 lg:px-20 py-12 lg:py-20">

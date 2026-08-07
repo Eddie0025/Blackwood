@@ -1,38 +1,45 @@
 import React from "react";
 import SystemSection from "../components/SystemsSections";
+import SystemsAnimation from "../components/SystemsAnimation.jsx";
+
 function Systems() {
   return (
-    <div className="bg-[#0b0a09] min-h-screen text-white overflow-x-hidden">
+    <div className="bg-black min-h-screen text-white overflow-x-hidden">
 
       {/* ================= Hero ================= */}
-      <section className="px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-20">
+      <section className="px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+        <div>
+          {/* Label */}
+          <p className="text-[#c6a96b] uppercase tracking-[0.35em] text-xs sm:text-sm lg:text-base">
+            BLACKWOOD TECHNOLOGIES
+          </p>
 
-        {/* Label */}
-        <p className="text-[#c6a96b] uppercase tracking-[0.35em] text-xs sm:text-sm lg:text-base">
-          BLACKWOOD TECHNOLOGIES
-        </p>
+          {/* Heading */}
+          <h1
+            className="mt-8 leading-none"
+            style={{ fontFamily: "Newsreader, serif" }}
+          >
+            <span className="block text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+              Core
+            </span>
 
-        {/* Heading */}
-        <h1
-          className="mt-8 leading-none"
-          style={{ fontFamily: "Newsreader, serif" }}
-        >
-          <span className="block text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-            Core
-          </span>
+            <span className="block italic text-[#c6a96b] text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+              Systems.
+            </span>
+          </h1>
 
-          <span className="block italic text-[#c6a96b] text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-            Systems.
-          </span>
-        </h1>
+          {/* Description */}
+          <p className="mt-8 lg:mt-12 max-w-xl text-justify text-[#7f7f7f] text-base sm:text-lg lg:text-xl leading-8 lg:leading-10">
+            Three autonomous intelligence systems. Distinct domains,
+            unified architecture, designed to operate independently or
+            as a single integrated framework.
+          </p>
+        </div>
 
-        {/* Description */}
-        <p className="mt-8 lg:mt-12 max-w-xl text-justify text-[#7f7f7f] text-base sm:text-lg lg:text-xl leading-8 lg:leading-10">
-          Three autonomous intelligence systems. Distinct domains,
-          unified architecture, designed to operate independently or
-          as a single integrated framework.
-        </p>
-
+        {/* Dynamic 3D Particle Morphing System Animation */}
+        <div className="flex justify-center lg:justify-end w-full">
+          <SystemsAnimation />
+        </div>
       </section>
 
       <SystemSection

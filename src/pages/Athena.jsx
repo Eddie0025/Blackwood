@@ -1,10 +1,45 @@
 import React from 'react'
-import SystemHero from '../components/models/SystemHero'
 import ThreeColumnSection from "../components/models/ThreeColumnSection";
+import AthenaAnimation from "../components/AthenaAnimation.jsx";
+
 function Athena() {
   return (
-    <div>
-      <SystemHero number="03" category="DECISION-SUPPORT INTELLIGENCE" title="Athena" tagline="Clarity in complexity." />
+    <div className="bg-black min-h-screen text-white">
+      {/* Custom Hero section with 2-column layout */}
+      <section className="bg-black px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+        <div>
+          {/* Top Label */}
+          <div className="flex items-center gap-4 text-[#c6a96b] uppercase tracking-[0.35em] text-xs sm:text-sm">
+            <span>03</span>
+            <span className="text-[#6d5b36]">—</span>
+            <span>DECISION-SUPPORT INTELLIGENCE</span>
+          </div>
+
+          {/* Title */}
+          <h1
+            className="mt-10 text-white text-6xl sm:text-7xl md:text-8xl lg:text-[110px] leading-none"
+            style={{ fontFamily: "Newsreader, serif" }}
+          >
+            Athena
+          </h1>
+
+          {/* Tagline */}
+          <p
+            className="mt-8 text-[#5f5f5f] italic text-xl sm:text-2xl lg:text-[36px]"
+            style={{ fontFamily: "Newsreader, serif" }}
+          >
+            Clarity in complexity.
+          </p>
+
+          {/* Gold Divider */}
+          <div className="w-10 h-px bg-[#8a7343] mt-12"></div>
+        </div>
+
+        {/* Dynamic Athena Logo Particle Assembly Animation */}
+        <div className="flex justify-center lg:justify-end w-full">
+          <AthenaAnimation />
+        </div>
+      </section>
 
       {/* ================= Problem / Solution ================= */}
 

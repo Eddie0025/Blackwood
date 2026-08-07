@@ -2,39 +2,47 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CareerValues from "../components/CareerValues";
 import JobListings from "../components/JobListings";
+import CareersAnimation from "../components/CareersAnimation";
 
 function Careers() {
   return (
     <div className="bg-[#0b0a09] min-h-screen text-white overflow-x-hidden">
 
       {/* ================= Hero ================= */}
-      <section className="px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-20">
+      <section className="px-6 sm:px-10 lg:px-20 pt-4 sm:pt-6 lg:pt-8 pb-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
 
-        {/* Label */}
-        <p className="text-[#c6a96b] uppercase tracking-[0.35em] text-xs sm:text-sm lg:text-base">
-          JOIN BLACKWOOD
-        </p>
+        <div>
+          {/* Label */}
+          <p className="text-[#c6a96b] uppercase tracking-[0.35em] text-xs sm:text-sm lg:text-base">
+            JOIN BLACKWOOD
+          </p>
 
-        {/* Heading */}
-        <h1
-          className="mt-8 leading-none"
-          style={{ fontFamily: "Newsreader, serif" }}
-        >
-          <span className="block text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-            Build what
-          </span>
+          {/* Heading */}
+          <h1
+            className="mt-8 leading-none"
+            style={{ fontFamily: "Newsreader, serif" }}
+          >
+            <span className="block text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+              Build what
+            </span>
 
-          <span className="block italic text-[#c6a96b] text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-            doesn't exist yet.
-          </span>
-        </h1>
+            <span className="block italic text-[#c6a96b] text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+              doesn't exist yet.
+            </span>
+          </h1>
 
-        {/* Description */}
-        <p className="mt-8 lg:mt-12 max-w-xl text-[#5f5f5f] text-base sm:text-lg lg:text-xl leading-8 lg:leading-10">
-          Blackwood operates at the frontier of autonomous intelligence
-          systems. We hire for depth, rigour, and the ability to work on
-          problems that have no established playbook.
-        </p>
+          {/* Description */}
+          <p className="mt-8 lg:mt-12 max-w-xl text-[#5f5f5f] text-base sm:text-lg lg:text-xl leading-8 lg:leading-10">
+            Blackwood operates at the frontier of autonomous intelligence
+            systems. We hire for depth, rigour, and the ability to work on
+            problems that have no established playbook.
+          </p>
+        </div>
+
+        {/* Animation */}
+        <div className="hidden lg:flex items-center justify-center" style={{ minHeight: "550px" }}>
+          <CareersAnimation />
+        </div>
 
       </section>
 

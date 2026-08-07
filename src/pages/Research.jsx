@@ -1,39 +1,45 @@
 import React from "react";
 import ResearchList from "../components/ResearchList";
+import ResearchAnimation from "../components/ResearchAnimation";
 
 function Research() {
   return (
-    <div className="bg-[#0b0a09] min-h-screen text-white overflow-x-hidden">
+    <div className="bg-black min-h-screen text-white overflow-x-hidden">
 
       {/* ================= Hero ================= */}
-      <section className="px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-16 lg:pb-24">
+      <section className="px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-16 lg:pb-24 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+        <div>
+          {/* Label */}
+          <p className="text-[#c6a96b] uppercase tracking-[0.35em] text-xs sm:text-sm lg:text-base">
+            INTELLIGENCE BRIEFINGS
+          </p>
 
-        {/* Label */}
-        <p className="text-[#c6a96b] uppercase tracking-[0.35em] text-xs sm:text-sm lg:text-base">
-          INTELLIGENCE BRIEFINGS
-        </p>
+          {/* Heading */}
+          <h1
+            className="mt-8 lg:mt-10 leading-none"
+            style={{ fontFamily: "Newsreader, serif" }}
+          >
+            <span className="block text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+              Research &
+            </span>
 
-        {/* Heading */}
-        <h1
-          className="mt-8 lg:mt-10 leading-none"
-          style={{ fontFamily: "Newsreader, serif" }}
-        >
-          <span className="block text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-            Research &
-          </span>
+            <span className="block text-[#c6a96b] italic text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+              Analysis.
+            </span>
+          </h1>
 
-          <span className="block text-[#c6a96b] italic text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-            Analysis.
-          </span>
-        </h1>
+          {/* Description */}
+          <p className="mt-8 lg:mt-12 max-w-xl text-[#5f5f5f] text-base sm:text-lg lg:text-xl leading-8 lg:leading-10">
+            Published intelligence on autonomous AI systems,
+            adversarial threat landscapes, and the architecture of
+            enterprise-grade intelligence infrastructure.
+          </p>
+        </div>
 
-        {/* Description */}
-        <p className="mt-8 lg:mt-12 max-w-xl text-[#5f5f5f] text-base sm:text-lg lg:text-xl leading-8 lg:leading-10">
-          Published intelligence on autonomous AI systems,
-          adversarial threat landscapes, and the architecture of
-          enterprise-grade intelligence infrastructure.
-        </p>
-
+        {/* Dynamic Atomic Research Animation */}
+        <div className="flex justify-center lg:justify-end w-full">
+          <ResearchAnimation />
+        </div>
       </section>
 
       {/* ================= Research Articles ================= */}

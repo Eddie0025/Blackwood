@@ -13,7 +13,7 @@ function Footer() {
           {/* Logo */}
           <div>
             <img
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Blackwood"
               className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 object-cover mb-6"
             />
