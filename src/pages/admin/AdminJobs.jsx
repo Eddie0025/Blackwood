@@ -10,7 +10,7 @@ function AdminJobs() {
   const [expandedId, setExpandedId] = useState(null);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [modalMode, setModalMode] = useState('add');
-  const [currentJob, setCurrentJob] = useState({ id: null, title: '', category: '', location: '', type: 'Full-time', description: '', isActive: true });
+  const [currentJob, setCurrentJob] = useState({ id: null, title: '', category: '', location: '', type: 'Full-time', experience: '', ctc: '', description: '', isActive: true });
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
@@ -48,11 +48,13 @@ function AdminJobs() {
         category: job.category,
         location: job.location,
         type: job.type,
+        experience: job.experience || '',
+        ctc: job.ctc || '',
         description: job.description,
         isActive: job.is_active
       });
     } else {
-      setCurrentJob({ id: null, title: '', category: '', location: '', type: 'Full-time', description: '', isActive: true });
+      setCurrentJob({ id: null, title: '', category: '', location: '', type: 'Full-time', experience: '', ctc: '', description: '', isActive: true });
     }
     setIsPanelOpen(true);
   };
@@ -80,8 +82,8 @@ function AdminJobs() {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    if (!currentJob.title || !currentJob.category || !currentJob.location || !currentJob.type || !currentJob.description) {
-      toast.error('All fields are required');
+    if (!currentJob.title || !currentJob.category || !currentJob.location || !currentJob.type || !currentJob.experience || !currentJob.description) {
+      toast.error('All required fields must be filled');
       return;
     }
 
@@ -93,6 +95,8 @@ function AdminJobs() {
           category: currentJob.category,
           location: currentJob.location,
           type: currentJob.type,
+          experience: currentJob.experience,
+          ctc: currentJob.ctc,
           description: currentJob.description,
           is_active: true
         }]);
@@ -104,6 +108,8 @@ function AdminJobs() {
           category: currentJob.category,
           location: currentJob.location,
           type: currentJob.type,
+          experience: currentJob.experience,
+          ctc: currentJob.ctc,
           description: currentJob.description,
           is_active: true
         }).eq('id', currentJob.id);
@@ -279,6 +285,30 @@ function AdminJobs() {
                         <option value="Contract">Contract</option>
                         <option value="Internship">Internship</option>
                       </select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <label className="text-[11px] uppercase tracking-widest text-[#c6a96b] font-semibold">Experience Required <span className="text-red-500">*</span></label>
+                      <input 
+                        type="text" 
+                        required
+                        value={currentJob.experience} 
+                        onChange={e => setCurrentJob({...currentJob, experience: e.target.value})} 
+                        className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-4 py-2.5 text-white outline-none focus:border-[#c6a96b] focus:ring-1 focus:ring-[#c6a96b] transition-all text-sm" 
+                        placeholder="e.g. 5+ Years" 
+                      />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-[11px] uppercase tracking-widest text-[#c6a96b] font-semibold">CTC / Salary (Optional)</label>
+                      <input 
+                        type="text" 
+                        value={currentJob.ctc} 
+                        onChange={e => setCurrentJob({...currentJob, ctc: e.target.value})} 
+                        className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-4 py-2.5 text-white outline-none focus:border-[#c6a96b] focus:ring-1 focus:ring-[#c6a96b] transition-all text-sm" 
+                        placeholder="e.g. $150,000 - $180,000" 
+                      />
                     </div>
                   </div>
 

@@ -106,6 +106,18 @@ function JobListings() {
             {/* Expandable Content */}
             {expandedId === job.id && (
               <div className="pb-10 pt-2 animate-fadeIn">
+                <div className="flex flex-wrap gap-4 mb-6 text-sm">
+                  <div className="bg-[#151515] border border-[#2a2a2a] px-4 py-2 rounded text-gray-300">
+                    <span className="text-[#c6a96b] font-semibold mr-2">Experience:</span> 
+                    {job.experience || 'Not specified'}
+                  </div>
+                  {job.ctc && (
+                    <div className="bg-[#151515] border border-[#2a2a2a] px-4 py-2 rounded text-gray-300">
+                      <span className="text-[#c6a96b] font-semibold mr-2">CTC:</span> 
+                      {job.ctc}
+                    </div>
+                  )}
+                </div>
                 <div className="max-w-4xl text-gray-300 text-sm sm:text-base leading-relaxed whitespace-pre-wrap">
                   {job.description}
                 </div>
