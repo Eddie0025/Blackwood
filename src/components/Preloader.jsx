@@ -15,7 +15,7 @@ const Preloader = ({ onComplete }) => {
 
         // --- CONFIGURATION ---
         const IMAGE_SRC = '/logo.png'; 
-        const PARTICLE_STEP = 2; // Extremely dense particles
+        const PARTICLE_STEP = 5; // Reduced density for fewer particles
         const BRIGHTNESS_THRESHOLD = 30; // Ignore deep blacks
 
         // Original cinematic zoom start
