@@ -15,7 +15,7 @@ const Preloader = ({ onComplete }) => {
 
         // --- CONFIGURATION ---
         const IMAGE_SRC = '/logo.png'; 
-        const PARTICLE_STEP = 5; // Reduced density for fewer particles
+        const PARTICLE_STEP = 2; // Extremely dense particles
         const BRIGHTNESS_THRESHOLD = 30; // Ignore deep blacks
 
         // Original cinematic zoom start
@@ -56,10 +56,6 @@ const Preloader = ({ onComplete }) => {
                 // Original elegant floating speed
                 this.ease = Math.random() * 0.04 + 0.02; 
                 this.alpha = 0; 
-                
-                // Twinkling properties
-                this.twinkleSpeed = Math.random() * 0.1 + 0.05;
-                this.twinklePhase = Math.random() * Math.PI * 2;
             }
 
             update() {
@@ -69,7 +65,6 @@ const Preloader = ({ onComplete }) => {
                 if (this.alpha < 1) {
                     this.alpha += 0.015;
                 }
-                this.twinklePhase += this.twinkleSpeed;
             }
 
             draw() {
