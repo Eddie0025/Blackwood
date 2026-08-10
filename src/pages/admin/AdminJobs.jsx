@@ -80,8 +80,8 @@ function AdminJobs() {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    if (!currentJob.title || !currentJob.category) {
-      toast.error('Title and Category are required');
+    if (!currentJob.title || !currentJob.category || !currentJob.location || !currentJob.type || !currentJob.description) {
+      toast.error('All fields are required');
       return;
     }
 
@@ -256,9 +256,10 @@ function AdminJobs() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="text-[11px] uppercase tracking-widest text-[#c6a96b] font-semibold">Location</label>
+                      <label className="text-[11px] uppercase tracking-widest text-[#c6a96b] font-semibold">Location <span className="text-red-500">*</span></label>
                       <input 
                         type="text" 
+                        required
                         value={currentJob.location} 
                         onChange={e => setCurrentJob({...currentJob, location: e.target.value})} 
                         className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-4 py-2.5 text-white outline-none focus:border-[#c6a96b] focus:ring-1 focus:ring-[#c6a96b] transition-all text-sm" 
@@ -266,8 +267,9 @@ function AdminJobs() {
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="text-[11px] uppercase tracking-widest text-[#c6a96b] font-semibold">Job Type</label>
+                      <label className="text-[11px] uppercase tracking-widest text-[#c6a96b] font-semibold">Job Type <span className="text-red-500">*</span></label>
                       <select 
+                        required
                         value={currentJob.type} 
                         onChange={e => setCurrentJob({...currentJob, type: e.target.value})} 
                         className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-4 py-2.5 text-white outline-none focus:border-[#c6a96b] focus:ring-1 focus:ring-[#c6a96b] transition-all text-sm appearance-none"
@@ -281,8 +283,9 @@ function AdminJobs() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-[11px] uppercase tracking-widest text-[#c6a96b] font-semibold">Detailed Description</label>
+                    <label className="text-[11px] uppercase tracking-widest text-[#c6a96b] font-semibold">Detailed Description <span className="text-red-500">*</span></label>
                     <textarea 
+                      required
                       value={currentJob.description} 
                       onChange={e => setCurrentJob({...currentJob, description: e.target.value})} 
                       className="w-full bg-[#111] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white outline-none focus:border-[#c6a96b] focus:ring-1 focus:ring-[#c6a96b] transition-all text-sm min-h-[200px] resize-y" 
