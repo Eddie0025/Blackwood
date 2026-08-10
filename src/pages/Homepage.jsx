@@ -15,7 +15,7 @@ function Homepage({ onRequestAccess }) {
         path="/" 
       />
       {/* First section */}
-      <section className="px-6 sm:px-10 lg:px-20 pt-0 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+      <section className="px-6 sm:px-10 lg:px-20 pt-32 lg:pt-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
         <div>
           <h2 className="text-[#c6a96b] text-xs sm:text-sm lg:text-xl tracking-[0.25em] lg:tracking-[0.3em] uppercase font-sans">
             AI-NATIVE INTELLIGENCE INFRASTRUCTURE
