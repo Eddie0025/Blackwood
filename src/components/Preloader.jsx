@@ -80,14 +80,10 @@ const Preloader = ({ onComplete }) => {
                 const drawX = cx + (this.x - cx) * globalZoom;
                 const drawY = cy + (this.y - cy) * globalZoom;
 
-                // Create a sparkling twinkle effect
-                const twinkle = (Math.sin(this.twinklePhase) + 1) * 0.5; // Oscillates between 0 and 1
-                const sparkleAlpha = finalAlpha * (0.4 + twinkle * 0.6);
-
-                ctx.globalAlpha = Math.max(0, Math.min(1, sparkleAlpha));
+                ctx.globalAlpha = Math.max(0, Math.min(1, finalAlpha));
                 ctx.fillStyle = this.color;
                 ctx.beginPath();
-                ctx.arc(drawX, drawY, this.size * globalZoom * (0.8 + twinkle * 0.4), 0, Math.PI * 2);
+                ctx.arc(drawX, drawY, this.size * globalZoom, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
