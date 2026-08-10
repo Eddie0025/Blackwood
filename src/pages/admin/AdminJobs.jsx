@@ -114,7 +114,7 @@ function AdminJobs() {
       fetchJobs();
     } catch (err) {
       console.error("Error saving job:", err);
-      toast.error(`Failed to ${modalMode} job`);
+      toast.error(`Failed to ${modalMode} job: ${err.message || 'Unknown error'}`);
     } finally {
       setIsSaving(false);
     }
