@@ -46,6 +46,7 @@ function AdminLayout() {
     { name: 'Dashboard', path: '/admin', icon: <FiHome /> },
     { name: 'Access Requests', path: '/admin/requests', icon: <FiInbox /> },
     { name: 'Jobs', path: '/admin/jobs', icon: <FiBriefcase /> },
+    { name: 'Applications', path: '/admin/applications', icon: <FiFileText /> },
     { name: 'Articles', path: '/admin/articles', icon: <FiFileText /> },
   ];
 

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Homepage from './pages/Homepage.jsx'
 import Careers from './pages/Careers.jsx'
+import Apply from './pages/Apply.jsx'
 import Systems from './pages/Systems.jsx'
 import Research from './pages/Research.jsx'
 import About from './pages/About.jsx'
@@ -20,6 +21,7 @@ import AdminDashboard from './pages/admin/AdminDashboard.jsx'
 import AdminAccessRequests from './pages/admin/AdminAccessRequests.jsx'
 import AdminJobs from './pages/admin/AdminJobs.jsx'
 import AdminArticles from './pages/admin/AdminArticles.jsx'
+import AdminApplications from './pages/admin/AdminApplications.jsx'
 
 function App() {
   const alreadySeen = sessionStorage.getItem('preloaderSeen');
@@ -49,6 +51,7 @@ function App() {
         <Route path="/systems" element={<Systems onRequestAccess={openAccessModal} />} />
         <Route path="/research" element={<Research onRequestAccess={openAccessModal} />} />
         <Route path="/careers" element={<Careers onRequestAccess={openAccessModal} />} />
+        <Route path="/apply/:id" element={<Apply onRequestAccess={openAccessModal} />} />
         <Route path="/about" element={<About onRequestAccess={openAccessModal} />} />
         <Route path="/cerebx" element={<Cerebx onRequestAccess={openAccessModal} />} />
         <Route path="/athena" element={<Athena onRequestAccess={openAccessModal} />} />
@@ -60,6 +63,7 @@ function App() {
           <Route index element={<AdminDashboard />} />
           <Route path="requests" element={<AdminAccessRequests />} />
           <Route path="jobs" element={<AdminJobs />} />
+          <Route path="applications" element={<AdminApplications />} />
           <Route path="articles" element={<AdminArticles />} />
         </Route>
       </Routes>
