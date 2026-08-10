@@ -21,6 +21,8 @@ function AdminApplications() {
           email,
           number,
           location,
+          experience,
+          ctc,
           resume_url,
           created_at,
           jobs ( title, category )
@@ -80,6 +82,7 @@ function AdminApplications() {
                     <div className="font-medium text-white text-base">{app.name}</div>
                     <div className="text-gray-400 text-xs mt-1">{app.email}</div>
                     <div className="text-gray-500 text-xs mt-0.5">{app.number} • {app.location}</div>
+                    <div className="text-gray-500 text-xs mt-0.5">Exp: {app.experience || 'N/A'} {app.ctc ? `• CTC: ${app.ctc}` : ''}</div>
                   </td>
                   <td className="px-6 py-5">
                     <div className="text-gray-300 font-medium">{app.jobs?.title || 'Unknown Position'}</div>

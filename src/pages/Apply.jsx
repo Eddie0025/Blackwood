@@ -16,6 +16,8 @@ function Apply() {
     email: "",
     number: "",
     location: "",
+    experience: "",
+    ctc: "",
     resume: null
   });
 
@@ -86,6 +88,8 @@ function Apply() {
           email: formData.email,
           number: formData.number,
           location: formData.location,
+          experience: formData.experience,
+          ctc: formData.ctc,
           resume_url: publicUrl
         }]);
 
@@ -174,6 +178,33 @@ function Apply() {
                 name="location"
                 required
                 value={formData.location}
+                onChange={handleChange}
+                className="w-full bg-[#151515] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white outline-none focus:border-[#c6a96b] focus:ring-1 focus:ring-[#c6a96b] transition-all text-sm"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-2">
+              <label className="text-[11px] uppercase tracking-widest text-[#c6a96b] font-semibold">Years of Experience <span className="text-red-500">*</span></label>
+              <input 
+                type="text" 
+                name="experience"
+                required
+                placeholder="e.g. 3 years"
+                value={formData.experience}
+                onChange={handleChange}
+                className="w-full bg-[#151515] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white outline-none focus:border-[#c6a96b] focus:ring-1 focus:ring-[#c6a96b] transition-all text-sm"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-[11px] uppercase tracking-widest text-[#c6a96b] font-semibold">Current/Expected CTC (Optional)</label>
+              <input 
+                type="text" 
+                name="ctc"
+                placeholder="e.g. $120,000"
+                value={formData.ctc}
                 onChange={handleChange}
                 className="w-full bg-[#151515] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white outline-none focus:border-[#c6a96b] focus:ring-1 focus:ring-[#c6a96b] transition-all text-sm"
               />
