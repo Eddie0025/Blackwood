@@ -96,7 +96,7 @@ function Footer() {
               href="mailto:contact@blackwoodtech.com"
               className="hover:text-[#c6a96b] transition"
             >
-              CONTACT US- +91-9779433125
+              CONTACT US- +91 70871 61443
             </a>
           </div>
 

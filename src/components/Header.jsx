@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 
-function Header() {
+function Header({ onRequestAccess }) {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleAccessClick = () => {
+    setMenuOpen(false);
+    if (onRequestAccess) onRequestAccess();
+  };
 
   return (
     <header className="bg-black w-full sticky top-0 z-50 border-b border-gray-800">
@@ -52,7 +57,10 @@ function Header() {
             ABOUT
           </Link>
 
-          <button className="bg-black text-[#c6a96b] border border-[#c6a96b] px-4 py-1.5 rounded-md font-semibold hover:bg-[#eab23a] hover:text-black transition text-xs">
+          <button
+            onClick={handleAccessClick}
+            className="bg-black text-[#c6a96b] border border-[#c6a96b] px-4 py-1.5 rounded-md font-semibold hover:bg-[#eab23a] hover:text-black transition text-xs cursor-pointer"
+          >
             REQUEST ACCESS
           </button>
         </nav>
@@ -105,7 +113,10 @@ function Header() {
             ABOUT
           </Link>
 
-          <button className="bg-black text-[#c6a96b] border-2 border-[#c6a96b] px-6 py-3 rounded-md font-semibold hover:bg-[#FFD700] hover:text-black transition">
+          <button
+            onClick={handleAccessClick}
+            className="bg-black text-[#c6a96b] border-2 border-[#c6a96b] px-6 py-3 rounded-md font-semibold hover:bg-[#FFD700] hover:text-black transition cursor-pointer"
+          >
             REQUEST ACCESS
           </button>
         </nav>

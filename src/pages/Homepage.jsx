@@ -5,7 +5,7 @@ import SystemCard from "../components/SystemCard";
 import Principles from "../components/Principles.jsx";
 import CrystalHero from "../components/CrystalHero.jsx";
 
-function Homepage() {
+function Homepage({ onRequestAccess }) {
   return (
     <div className="bg-[#0b0a09] min-h-screen text-white overflow-x-hidden">
       {/* First section */}
@@ -43,12 +43,12 @@ function Homepage() {
               Explore Systems —
             </Link>
 
-            <Link
-              to="/access"
-              className="text-[#c6a96b] text-sm sm:text-base lg:text-xl tracking-[0.25em] lg:tracking-[0.3em] uppercase font-sans hover:text-white transition"
+            <button
+              onClick={onRequestAccess}
+              className="text-[#c6a96b] text-sm sm:text-base lg:text-xl tracking-[0.25em] lg:tracking-[0.3em] uppercase font-sans hover:text-white transition cursor-pointer bg-transparent border-none p-0 text-left"
             >
               Request Access —
-            </Link>
+            </button>
           </div>
         </div>
 

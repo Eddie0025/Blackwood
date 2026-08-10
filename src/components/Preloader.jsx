@@ -89,21 +89,21 @@ const Preloader = ({ onComplete }) => {
             initParticles();
             animate();
             
-            // TIMELINE
+            // TIMELINE: Allow particles to converge and hold a solid outline longer
             timelineTimeout1 = setTimeout(() => {
                 phase = 'solid';
-            }, 3000); // Reduced by 1s
+            }, 4200); // Extended particle convergence hold phase
 
             timelineTimeout2 = setTimeout(() => {
                 if (wrapperRef.current) {
                     wrapperRef.current.style.opacity = '0';
                 }
-            }, 4500); // Reduced by 1s
+            }, 6000); // Fade out overlay at 6s
 
             timelineTimeout3 = setTimeout(() => {
                 cancelAnimationFrame(animationFrame);
                 if (onComplete) onComplete();
-            }, 6500); // Trigger completion after fade out (reduced by 1s)
+            }, 8000); // Complete preloader at 8s
         };
 
         function initParticles() {
@@ -158,8 +158,8 @@ const Preloader = ({ onComplete }) => {
             });
 
             if (phase === 'solid') {
-                // MUCH FASTER and smoother fade in of the clean logo
-                if (imageAlpha < 1) imageAlpha += 0.05; 
+                // Smooth and gradual fade in of the clean logo
+                if (imageAlpha < 1) imageAlpha += 0.025; 
                 ctx.globalAlpha = Math.max(0, Math.min(1, imageAlpha));
                 
                 ctx.globalCompositeOperation = 'screen';

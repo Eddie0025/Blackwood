@@ -253,14 +253,14 @@ const SystemsAnimation = () => {
       systemsGroup.rotation.x += 0.0005;
 
       const t = clock.getElapsedTime();
-      const cycle = t % 12.0;
+      const cycle = t % 6.0;
       let phase = "wander";
 
-      if (cycle >= 4.0 && cycle < 7.0) {
+      if (cycle >= 1.0 && cycle < 3.0) {
         phase = "organize";
-      } else if (cycle >= 7.0 && cycle < 9.5) {
+      } else if (cycle >= 3.0 && cycle < 5.0) {
         phase = "network";
-      } else if (cycle >= 9.5) {
+      } else if (cycle >= 5.0 && cycle < 5.5) {
         phase = "collapse";
       }
 

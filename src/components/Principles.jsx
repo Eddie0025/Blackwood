@@ -35,7 +35,7 @@ function Principles() {
 
             {/* Heading */}
             <h2
-              className="text-white text-3xl sm:text-4xl lg:text-[48px] leading-tight"
+              className="text-white text-3xl sm:text-4xl lg:text-[38px] leading-tight"
               style={{ fontFamily: "Newsreader, serif" }}
             >
               {item.title}

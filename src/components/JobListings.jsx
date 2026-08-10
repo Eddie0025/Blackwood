@@ -1,49 +1,65 @@
-import React from "react";
-
-const jobs = [
-  {
-    category: "AI RESEARCH",
-    location: "Remote / Washington D.C.",
-    type: "Full-time",
-    title: "Senior Research Scientist — Autonomous Systems",
-  },
-  {
-    category: "AI RESEARCH",
-    location: "Remote",
-    type: "Full-time",
-    title: "Machine Learning Engineer — Custom Model Training",
-  },
-  {
-    category: "CYBERSECURITY",
-    location: "Washington D.C. / On-site",
-    type: "Full-time",
-    title: "Principal Threat Intelligence Analyst",
-  },
-  {
-    category: "ENGINEERING",
-    location: "Remote",
-    type: "Full-time",
-    title: "Platform Engineer — AI Infrastructure",
-  },
-  {
-    category: "ENGINEERING",
-    location: "Remote",
-    type: "Full-time",
-    title: "Full-Stack Engineer — Intelligence Interfaces",
-  },
-  {
-    category: "SOLUTIONS",
-    location: "Remote / Travel Required",
-    type: "Full-time",
-    title: "Enterprise Solutions Architect",
-  },
-];
+import React, { useState, useEffect } from "react";
+import { supabase } from "../lib/supabase";
 
 function JobListings() {
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [filterType, setFilterType] = useState('All');
+  
+  const filters = ['All', 'Full-time', 'Part-time', 'Contract', 'Internship'];
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const { data, error } = await supabase
+        .from('jobs')
+        .select('*')
+        .eq('is_active', true)
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Error fetching jobs:', error);
+      } else if (data) {
+        setJobs(data);
+      }
+      setLoading(false);
+    };
+
+    fetchJobs();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="bg-[#0b0a09] px-6 sm:px-10 lg:px-20 py-20 flex justify-center">
+        <span className="text-[#c6a96b] text-sm tracking-widest uppercase animate-pulse">Loading positions...</span>
+      </section>
+    );
+  }
+
+  const filteredJobs = filterType === 'All' ? jobs : jobs.filter(job => job.type === filterType);
+
   return (
     <section className="bg-[#0b0a09] px-6 sm:px-10 lg:px-20 py-20">
+      {/* Filter Section */}
+      <div className="mb-12 flex flex-wrap gap-3">
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            onClick={() => setFilterType(filter)}
+            className={`px-5 py-2 rounded-full text-xs font-medium uppercase tracking-widest transition-all duration-300 ${
+              filterType === filter 
+                ? 'bg-[#c6a96b] text-black shadow-[0_0_15px_rgba(198,169,107,0.3)]' 
+                : 'bg-[#151515] text-gray-400 border border-[#2a2a2a] hover:text-white hover:border-[#444]'
+            }`}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+
       <div className="space-y-0">
-        {jobs.map((job, index) => (
+        {filteredJobs.length === 0 ? (
+          <div className="text-gray-500 py-8 italic text-sm">No {filterType !== 'All' ? filterType.toLowerCase() : ''} positions available at the moment.</div>
+        ) : filteredJobs.map((job, index) => (
           <div
             key={index}
             className="group border-b border-[#1a1a1a] py-8 cursor-pointer transition-all duration-300"
