@@ -1,4 +1,5 @@
 import React from "react";
+import SEO from "../components/SEO";
 
 const sections = [
   {
@@ -24,6 +25,7 @@ const sections = [
 function About() {
   return (
     <div className="bg-[#0b0a09] min-h-screen text-white">
+      <SEO title="About Us" description="Discover Blackwood Technologies' mission to build AI-first systems and autonomous intelligence infrastructure." path="/about" />
 
       {/* Hero */}
       <section className="px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-12">

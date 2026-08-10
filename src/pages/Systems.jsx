@@ -1,10 +1,12 @@
 import React from "react";
+import SEO from "../components/SEO";
 import SystemSection from "../components/SystemsSections";
 import SystemsAnimation from "../components/SystemsAnimation.jsx";
 
 function Systems() {
   return (
     <div className="bg-black min-h-screen text-white overflow-x-hidden">
+      <SEO title="Systems" description="Explore CerebX, Athena, and Nexus — Blackwood's proprietary autonomous intelligence platforms for defense, decision intelligence, and autonomous coordination." path="/systems" />
 
       {/* ================= Hero ================= */}
       <section className="px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">

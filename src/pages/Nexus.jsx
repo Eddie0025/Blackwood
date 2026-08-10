@@ -1,10 +1,12 @@
 import React from 'react'
+import SEO from "../components/SEO";
 import ThreeColumnSection from "../components/models/ThreeColumnSection";
 import NexusAnimation from "../components/NexusAnimation.jsx";
 
 function Nexus() {
   return (
     <div className="bg-black min-h-screen text-white">
+      <SEO title="Nexus" description="Nexus orchestrates autonomous systems at scale, enabling multi-agent coordination and decentralized decision-making across global infrastructure." path="/nexus" />
       {/* Custom Hero section with 2-column layout */}
       <section className="bg-black px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
         <div>

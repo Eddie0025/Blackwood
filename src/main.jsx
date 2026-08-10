@@ -4,14 +4,15 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
-import Header from './components/Header.jsx'
-import Footer from './components/Footer.jsx'
+import { HelmetProvider } from 'react-helmet-async'
 import ScrollToTop from './components/ScrollToTop.jsx'
-createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <ScrollToTop/>
-      <App/>
-      <Toaster/>
-  </BrowserRouter>
 
+createRoot(document.getElementById('root')).render(
+  <HelmetProvider>
+    <BrowserRouter>
+      <ScrollToTop/>
+        <App/>
+        <Toaster/>
+    </BrowserRouter>
+  </HelmetProvider>
 )

@@ -1,10 +1,12 @@
 import React from 'react'
+import SEO from "../components/SEO";
 import ThreeColumnSection from "../components/models/ThreeColumnSection";
 import AthenaAnimation from "../components/AthenaAnimation.jsx";
 
 function Athena() {
   return (
     <div className="bg-black min-h-screen text-white">
+      <SEO title="Athena" description="Athena is Blackwood's advanced threat-hunting platform. It autonomously identifies, tracks, and neutralizes zero-day threats across any network architecture." path="/athena" />
       {/* Custom Hero section with 2-column layout */}
       <section className="bg-black px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
         <div>

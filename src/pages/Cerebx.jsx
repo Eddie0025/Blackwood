@@ -1,10 +1,12 @@
 import React from "react";
+import SEO from "../components/SEO";
 import ThreeColumnSection from "../components/models/ThreeColumnSection";
 import CerebxAnimation from "../components/CerebxAnimation.jsx";
 
 function Cerebx() {
   return (
     <div className="bg-black min-h-screen text-white">
+      <SEO title="CerebX" description="CerebX is Blackwood's foundational decision intelligence engine. Capable of processing disparate data streams to form actionable strategic insights." path="/cerebx" />
       {/* Custom Hero section with 2-column layout */}
       <section className="bg-black px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
         <div>

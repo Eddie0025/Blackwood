@@ -1,4 +1,5 @@
 import React from "react";
+import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
 import CareerValues from "../components/CareerValues";
 import JobListings from "../components/JobListings";
@@ -7,6 +8,7 @@ import CareersAnimation from "../components/CareersAnimation";
 function Careers() {
   return (
     <div className="bg-[#0b0a09] min-h-screen text-white overflow-x-hidden">
+      <SEO title="Careers" description="Join Blackwood Technologies. Explore open positions in AI research, cybersecurity, engineering, and enterprise solutions." path="/careers" />
 
       {/* ================= Hero ================= */}
       <section className="px-6 sm:px-10 lg:px-20 pt-4 sm:pt-6 lg:pt-8 pb-20 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">

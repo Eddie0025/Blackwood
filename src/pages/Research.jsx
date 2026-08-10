@@ -1,10 +1,12 @@
 import React from "react";
+import SEO from "../components/SEO";
 import ResearchList from "../components/ResearchList";
 import ResearchAnimation from "../components/ResearchAnimation";
 
 function Research() {
   return (
     <div className="bg-black min-h-screen text-white overflow-x-hidden">
+      <SEO title="Research" description="Read Blackwood's latest intelligence reports and research papers on autonomous AI, threat intelligence, and defense architectures." path="/research" />
 
       {/* ================= Hero ================= */}
       <section className="px-6 sm:px-10 lg:px-20 pt-16 sm:pt-20 lg:pt-24 pb-16 lg:pb-24 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">

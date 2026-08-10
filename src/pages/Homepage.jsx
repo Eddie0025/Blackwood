@@ -1,4 +1,5 @@
 import React from "react";
+import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
 import SystemsMarquee from "../components/SystemsMarquee.jsx";
 import SystemCard from "../components/SystemCard";
@@ -8,6 +9,11 @@ import CrystalHero from "../components/CrystalHero.jsx";
 function Homepage({ onRequestAccess }) {
   return (
     <div className="bg-[#0b0a09] min-h-screen text-white overflow-x-hidden">
+      <SEO 
+        title="Home" 
+        description="Blackwood Technologies builds autonomous intelligence systems for defense, cybersecurity, and enterprise. Deploy CerebX, Athena, and Nexus." 
+        path="/" 
+      />
       {/* First section */}
       <section className="px-6 sm:px-10 lg:px-20 pt-0 grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
         <div>
