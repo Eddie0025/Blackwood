@@ -15,7 +15,7 @@ const Preloader = ({ onComplete }) => {
 
         // --- CONFIGURATION ---
         const IMAGE_SRC = '/logo.png'; 
-        const PARTICLE_STEP = 2; // Extremely dense particles
+        const PARTICLE_STEP = 5; // Reduced density for fewer particles
         const BRIGHTNESS_THRESHOLD = 30; // Ignore deep blacks
 
         // Original cinematic zoom start
@@ -47,12 +47,19 @@ const Preloader = ({ onComplete }) => {
                 this.x = x + (Math.random() - 0.5) * width * 3;
                 this.y = y + (Math.random() - 0.5) * height * 3;
                 
-                this.color = color;
-                this.size = Math.random() * 1.0 + 0.5; 
+                // Random shiny gold shades
+                const goldShades = ['#c6a96b', '#ffd700', '#f3e5ab', '#d4af37'];
+                this.color = goldShades[Math.floor(Math.random() * goldShades.length)];
+                
+                this.size = Math.random() * 1.5 + 0.5; 
                 
                 // Original elegant floating speed
                 this.ease = Math.random() * 0.04 + 0.02; 
                 this.alpha = 0; 
+                
+                // Twinkling properties
+                this.twinkleSpeed = Math.random() * 0.1 + 0.05;
+                this.twinklePhase = Math.random() * Math.PI * 2;
             }
 
             update() {
@@ -62,6 +69,7 @@ const Preloader = ({ onComplete }) => {
                 if (this.alpha < 1) {
                     this.alpha += 0.015;
                 }
+                this.twinklePhase += this.twinkleSpeed;
             }
 
             draw() {
@@ -72,10 +80,14 @@ const Preloader = ({ onComplete }) => {
                 const drawX = cx + (this.x - cx) * globalZoom;
                 const drawY = cy + (this.y - cy) * globalZoom;
 
-                ctx.globalAlpha = Math.max(0, Math.min(1, finalAlpha));
+                // Create a sparkling twinkle effect
+                const twinkle = (Math.sin(this.twinklePhase) + 1) * 0.5; // Oscillates between 0 and 1
+                const sparkleAlpha = finalAlpha * (0.4 + twinkle * 0.6);
+
+                ctx.globalAlpha = Math.max(0, Math.min(1, sparkleAlpha));
                 ctx.fillStyle = this.color;
                 ctx.beginPath();
-                ctx.arc(drawX, drawY, this.size * globalZoom, 0, Math.PI * 2);
+                ctx.arc(drawX, drawY, this.size * globalZoom * (0.8 + twinkle * 0.4), 0, Math.PI * 2);
                 ctx.fill();
             }
         }
@@ -136,9 +148,7 @@ const Preloader = ({ onComplete }) => {
                     const brightness = (0.299 * r + 0.587 * g + 0.114 * b);
                     
                     if (brightness > BRIGHTNESS_THRESHOLD && a > 0) {
-                        // Force all particles to be perfectly golden, removing any red image artifacts
-                        const color = '#c6a96b';
-                        particlesArray.push(new Particle(x + offsetX, y + offsetY, color));
+                        particlesArray.push(new Particle(x + offsetX, y + offsetY, null));
                     }
                 }
             }
