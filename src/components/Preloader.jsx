@@ -15,7 +15,7 @@ const Preloader = ({ onComplete }) => {
 
         // --- CONFIGURATION ---
         const IMAGE_SRC = '/logo.png'; 
-        const PARTICLE_STEP = 5; // Reduced density for fewer particles
+        const PARTICLE_STEP = 2; // Extremely dense particles
         const BRIGHTNESS_THRESHOLD = 30; // Ignore deep blacks
 
         // Original cinematic zoom start
@@ -47,11 +47,8 @@ const Preloader = ({ onComplete }) => {
                 this.x = x + (Math.random() - 0.5) * width * 3;
                 this.y = y + (Math.random() - 0.5) * height * 3;
                 
-                // Random shiny gold shades
-                const goldShades = ['#c6a96b', '#ffd700', '#f3e5ab', '#d4af37'];
-                this.color = goldShades[Math.floor(Math.random() * goldShades.length)];
-                
-                this.size = Math.random() * 1.5 + 0.5; 
+                this.color = color;
+                this.size = Math.random() * 1.0 + 0.5; 
                 
                 // Original elegant floating speed
                 this.ease = Math.random() * 0.04 + 0.02; 
@@ -139,7 +136,8 @@ const Preloader = ({ onComplete }) => {
                     const brightness = (0.299 * r + 0.587 * g + 0.114 * b);
                     
                     if (brightness > BRIGHTNESS_THRESHOLD && a > 0) {
-                        particlesArray.push(new Particle(x + offsetX, y + offsetY, null));
+                        const color = `rgb(${r}, ${g}, ${b})`;
+                        particlesArray.push(new Particle(x + offsetX, y + offsetY, color));
                     }
                 }
             }
