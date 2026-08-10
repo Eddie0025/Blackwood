@@ -10,5 +10,12 @@ export const supabase = createClient(
 // This should ONLY be used inside the admin dashboard or secure server environments.
 export const supabaseAdmin = createClient(
   import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_SERVICE_KEY
+  import.meta.env.VITE_SUPABASE_SERVICE_KEY,
+  {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+      detectSessionInUrl: false
+    }
+  }
 )
