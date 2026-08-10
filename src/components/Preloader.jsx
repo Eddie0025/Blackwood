@@ -136,7 +136,8 @@ const Preloader = ({ onComplete }) => {
                     const brightness = (0.299 * r + 0.587 * g + 0.114 * b);
                     
                     if (brightness > BRIGHTNESS_THRESHOLD && a > 0) {
-                        const color = `rgb(${r}, ${g}, ${b})`;
+                        // Force all particles to be perfectly golden, removing any red image artifacts
+                        const color = '#c6a96b';
                         particlesArray.push(new Particle(x + offsetX, y + offsetY, color));
                     }
                 }
